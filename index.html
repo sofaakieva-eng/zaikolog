@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Интенсив по преодолению заикания</title>
+<meta name="description" content="Онлайн-интенсив для детей с заиканием. 10 дней ежедневной работы + 3 недели поддержки. Уже к 4-му занятию ребёнок начинает говорить плавно. 15 лет опыта, 100+ семей.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg:        #F4EEE2;
+  --bg-alt:    #EAE0CE;
+  --surface:   #FDFAF4;
+  --surface-2: #F0E8D8;
+
+  --text:      #231F1A;
+  --text-mid:  #3A322B;
+  --text-dim:  #7A7068;
+
+  --ochre:     #B8732A;
+  --ochre-lt:  #D4965A;
+  --ochre-dk:  #8C5318;
+
+  --slate:     #3D5A78;
+  --slate-lt:  #5B7FA6;
+
+  --line:      rgba(35,31,26,0.10);
+  --line-md:   rgba(35,31,26,0.18);
+
+  --r-sm: 6px; --r-md: 14px; --r-lg: 22px; --r-xl: 36px;
+
+  --sh-1: 0 1px 4px rgba(35,31,26,0.06), 0 4px 16px rgba(35,31,26,0.06);
+  --sh-2: 0 2px 8px rgba(35,31,26,0.07), 0 8px 32px rgba(35,31,26,0.09);
+  --sh-3: 0 4px 16px rgba(35,31,26,0.08), 0 16px 56px rgba(35,31,26,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg); color: var(--text);
+  font-size: 16px; line-height: 1.55; overflow-x: hidden;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,h4 { font-family: 'Instrument Serif', serif; line-height: 1.12; color: var(--text); }
+h1 { font-size: clamp(2.4rem,5.5vw,4.2rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem,3.8vw,3rem);   letter-spacing: -0.015em; }
+h3 { font-size: clamp(1.05rem,2vw,1.3rem); }
+p  { line-height: 1.65; color: var(--text-mid); }
+
+.eyebrow {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); margin-bottom: 14px;
+}
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.sec  { padding: 104px 0; }
+.sec-alt { background: var(--bg-alt); }
+
+/* Кнопки */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 34px; font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem; font-weight: 600; border-radius: var(--r-md);
+  border: none; cursor: pointer; text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+.btn-primary { background: var(--ochre); color: #fff; box-shadow: 0 4px 24px rgba(184,115,42,0.32); }
+.btn-primary:hover { background: var(--ochre-dk); transform: translateY(-2px); box-shadow: 0 8px 36px rgba(184,115,42,0.42); }
+.btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line-md); }
+.btn-ghost:hover { background: var(--surface); border-color: var(--ochre); transform: translateY(-2px); box-shadow: var(--sh-1); }
+.btn-white { background: #fff; color: var(--text); box-shadow: 0 4px 20px rgba(35,31,26,0.14); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(35,31,26,0.20); }
+
+/* Навигация */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 18px 0;
+  transition: padding 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.nav.solid {
+  padding: 12px 0; background: rgba(244,238,226,0.92);
+  backdrop-filter: blur(28px) saturate(160%); box-shadow: 0 1px 0 var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Instrument Serif', serif; font-size: 1.18rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em;
+}
+.nav-logo-icon {
+  width: 36px; height: 36px; background: var(--ochre); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-logo-text span { font-size: 0.6rem; font-family: 'Montserrat', sans-serif; font-weight: 500; color: var(--text-dim); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+.nav-logo em { color: var(--ochre); font-style: italic; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.86rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { padding: 10px 24px; font-size: 0.85rem; border-radius: 100px; }
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+.mob-menu { display: none; position: fixed; inset: 0; background: var(--surface); z-index: 600; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+.mob-menu.open { display: flex; }
+.mob-menu a { font-family: 'Instrument Serif', serif; font-size: 2.2rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.mob-menu a:hover { color: var(--ochre); }
+.mob-close { position: absolute; top: 24px; right: 28px; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-mid); font-family: 'Montserrat', sans-serif; line-height: 1; }
+
+/* Герой */
+.hero { display: flex; align-items: center; padding: 150px 0 90px; position: relative; overflow: hidden; }
+.hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+.hero-orb-1 { width: 720px; height: 720px; right: -180px; top: -120px; background: radial-gradient(circle at 40% 40%, rgba(61,90,120,0.09) 0%, transparent 65%); }
+.hero-orb-2 { width: 480px; height: 480px; left: -80px; bottom: -80px; background: radial-gradient(circle, rgba(184,115,42,0.08) 0%, transparent 65%); }
+.hero-grid { display: grid; grid-template-columns: 1fr 460px; gap: 60px; align-items: center; }
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 20px;
+  background: rgba(61,90,120,0.08); border: 1px solid rgba(61,90,120,0.20);
+  border-radius: 100px; margin-bottom: 32px;
+  font-size: 0.78rem; font-weight: 600; color: var(--slate); letter-spacing: 0.04em;
+}
+.hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--slate); animation: blink 2.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero h1 { margin-bottom: 26px; }
+.hero h1 em { font-style: italic; color: var(--ochre); }
+.hero-lead { font-size: 1.05rem; line-height: 1.7; max-width: 510px; margin-bottom: 44px; color: var(--text-mid); }
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hero-hint { margin-top: 20px; font-size: 0.78rem; color: var(--text-dim); display: flex; align-items: center; gap: 16px; }
+.hero-hint span { display: flex; align-items: center; gap: 5px; }
+.hero-hint svg { opacity: 0.5; }
+
+/* Бейдж на фото */
+.hero-photo-badge {
+  position: absolute; bottom: 16px; right: 16px;
+  background: var(--ochre); color: #fff;
+  padding: 10px 14px; border-radius: var(--r-md);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  text-align: center; line-height: 1.3;
+  box-shadow: 0 4px 16px rgba(184,115,42,0.4);
+  z-index: 2;
+}
+.hero-photo-badge span { display: block; font-size: 1rem; font-weight: 800; }
+
+/* Карточка специалиста в герое */
+.hero-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xl); padding: 32px; box-shadow: var(--sh-3); position: relative;
+}
+.hero-card::before {
+  content: ''; position: absolute; top: 0; left: 40px; right: 40px; height: 2px;
+  border-radius: 0 0 2px 2px; background: linear-gradient(90deg, transparent, var(--ochre), transparent);
+}
+.hero-photo {
+  width: 100%; aspect-ratio: 4/5; border-radius: var(--r-lg); margin-bottom: 24px;
+  background: linear-gradient(145deg, var(--surface-2), var(--bg-alt));
+  border: 1px dashed var(--line-md); display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
+.hero-photo-ph { text-align: center; font-size: 0.82rem; color: var(--text-dim); padding: 24px; }
+.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.stat-item { background: var(--bg); border-radius: var(--r-md); padding: 14px 16px; text-align: center; }
+.stat-num { font-family: 'Instrument Serif', serif; font-size: 1.9rem; color: var(--ochre); line-height: 1; margin-bottom: 4px; }
+.stat-label { font-size: 0.7rem; font-weight: 600; color: var(--text-mid); line-height: 1.35; }
+
+/* Плавные переходы между секциями */
+.sec, .sec-alt, .intro-video-sec {
+  position: relative;
+}
+.sec::after, .sec-alt::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 72px;
+  pointer-events: none;
+  z-index: 1;
+}
+.sec::after      { background: linear-gradient(to bottom, transparent, rgba(234,224,206,0.35)); }
+.sec-alt::after  { background: linear-gradient(to bottom, transparent, rgba(245,239,230,0.35)); }
+.sec::before     { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 72px; pointer-events: none; z-index: 1;
+                   background: linear-gradient(to top, transparent, rgba(234,224,206,0.25)); }
+.sec-alt::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 72px; pointer-events: none; z-index: 1;
+                   background: linear-gradient(to top, transparent, rgba(245,239,230,0.25)); }
+
+/* Reveal */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.rv.in { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: 0.08s; } .rv-d2 { transition-delay: 0.16s; }
+.rv-d3 { transition-delay: 0.24s; } .rv-d4 { transition-delay: 0.32s; }
+
+/* Заголовки секций */
+.sec-header { margin-bottom: 60px; }
+.sec-header p { margin-top: 18px; font-size: 1.05rem; max-width: 560px; }
+
+/* USP-полоса */
+.usp-strip {
+  background: var(--text); padding: 64px 0;
+}
+.usp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.usp-item {
+  padding: 28px 32px; text-align: center;
+  border-right: 1px solid rgba(184,115,42,0.35);
+}
+.usp-item:last-child { border-right: none; }
+.usp-num {
+  font-family: 'Instrument Serif', serif; font-size: 2.6rem;
+  color: var(--ochre-lt); line-height: 1; margin-bottom: 8px;
+}
+.usp-label { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.45; font-weight: 500; }
+
+/* Для кого */
+.for-whom-inner { display: grid; grid-template-columns: 400px 1fr; gap: 60px; align-items: start; }
+.for-whom-photo { border-radius: 20px; overflow: hidden; box-shadow: 0 16px 48px rgba(35,31,26,0.12); position: sticky; top: 100px; }
+.for-whom-photo img { width: 100%; display: block; object-fit: cover; }
+.for-whom-content .sec-header { margin-bottom: 32px; }
+.problems { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.prob-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 30px 28px; box-shadow: var(--sh-1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.prob-card:hover { transform: translateY(-5px); box-shadow: var(--sh-2); border-color: var(--ochre-lt); }
+.prob-icon {
+  width: 44px; height: 44px; border-radius: var(--r-sm);
+  background: rgba(184,115,42,0.08);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
+.prob-card h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.prob-card p { font-size: 0.87rem; line-height: 1.6; }
+
+/* Суть метода */
+.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.method-visual {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xl); padding: 40px; box-shadow: var(--sh-2);
+}
+.method-compare { display: flex; flex-direction: column; gap: 0; }
+.method-row {
+  display: grid; grid-template-columns: 1fr 40px 1fr;
+  align-items: start; padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.method-row:last-child { border-bottom: none; }
+.method-bad {
+  font-size: 0.87rem; color: var(--text-dim); line-height: 1.5;
+  text-decoration: line-through; text-decoration-color: rgba(148,141,131,0.4);
+}
+.method-vs {
+  display: flex; align-items: center; justify-content: center; padding-top: 2px;
+}
+.method-good { font-size: 0.87rem; color: var(--text); line-height: 1.5; font-weight: 500; }
+.method-row-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 4px;
+}
+.method-content .eyebrow { margin-bottom: 12px; }
+.method-content h2 { margin-bottom: 20px; }
+.method-content p { font-size: 0.95rem; margin-bottom: 16px; }
+.method-content p + p { margin-top: 0; }
+
+/* Программа */
+.timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 27px; bottom: auto; width: 1px; height: 54px;
+  background: linear-gradient(to right, var(--ochre), var(--slate));
+  display: none;
+}
+.t-phase { display: flex; flex-direction: column; gap: 20px; }
+.t-phase:last-child { padding-bottom: 0; }
+.t-dot {
+  width: 54px; height: 54px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Instrument Serif', serif; font-size: 1.1rem;
+  flex-shrink: 0; position: relative; z-index: 1; box-shadow: var(--sh-1);
+}
+.t-dot-1 { background: var(--ochre); color: #fff; }
+.t-dot-2 { background: var(--text); color: #fff; }
+.t-dot-3 { background: var(--surface); color: var(--text-mid); border: 1.5px solid var(--line-md); }
+.t-body {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 30px 34px; box-shadow: var(--sh-1);
+}
+.t-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre); margin-bottom: 8px; display: block; }
+.t-body h3 { font-size: 1.2rem; margin-bottom: 14px; }
+.t-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.t-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.9rem; color: var(--text-mid); line-height: 1.6;
+}
+.t-list li::before {
+  content: ''; display: block; width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4' stroke='%23B8732A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+.t-gift {
+  margin-top: 18px; padding: 14px 18px;
+  background: rgba(61,90,120,0.07); border-radius: var(--r-sm);
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.87rem; color: var(--slate); font-weight: 500; line-height: 1.5;
+}
+.t-gift svg { flex-shrink: 0; margin-top: 1px; }
+.t-includes {
+  margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.t-incl-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: var(--text-mid);
+  background: var(--bg); border-radius: var(--r-sm); padding: 9px 12px;
+}
+.t-incl-item svg { flex-shrink: 0; opacity: 0.5; }
+
+/* О специалисте */
+.about-grid { display: grid; grid-template-columns: 360px 1fr; gap: 72px; align-items: start; }
+.about-photo-wrap { position: sticky; top: 100px; }
+.about-photo {
+  width: 100%; aspect-ratio: 3/4;
+  background: linear-gradient(145deg, var(--surface-2), var(--bg-alt));
+  border-radius: var(--r-xl); border: 1px dashed var(--line-md);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-xl); }
+.about-photo-ph { text-align: center; font-size: 0.82rem; color: var(--text-dim); padding: 32px; }
+.about-body .eyebrow { margin-bottom: 10px; }
+.about-body h2 { margin-bottom: 6px; }
+.about-name-sub { font-size: 0.95rem; color: var(--ochre); font-weight: 600; margin-bottom: 28px; }
+.about-text { font-size: 0.95rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 36px; }
+.about-text p + p { margin-top: 16px; }
+.creds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
+.cred {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 16px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.cred-ic {
+  width: 36px; height: 36px; border-radius: var(--r-sm);
+  background: rgba(184,115,42,0.08);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.cred-txt { font-size: 0.82rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+/* Видео-знакомство */
+.intro-video-sec {
+  background: var(--surface); padding: 80px 0; position: relative; overflow: hidden;
+}
+.intro-video-sec::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(184,115,42,0.18) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 80% at 85% 50%, black 30%, transparent 80%);
+}
+.intro-video-inner {
+  display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center;
+}
+.intro-video-label .eyebrow { color: var(--ochre); }
+.intro-video-label h2 { margin: 8px 0 14px; font-size: clamp(1.4rem,2.8vw,2rem); }
+.intro-video-label p { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; }
+.intro-video-wrap {
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 72px rgba(35,31,26,0.18);
+  background: #000;
+  width: 340px; max-width: 90vw;
+  aspect-ratio: 9/16;
+}
+.intro-video-wrap video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+/* Результаты — бенто */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; grid-auto-rows: minmax(150px, auto); }
+.bc {
+  border-radius: var(--r-lg); padding: 30px; border: 1px solid var(--line);
+  background: var(--surface); box-shadow: var(--sh-1); overflow: hidden; position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bc:hover { transform: translateY(-4px); box-shadow: var(--sh-2); }
+.bc-a { grid-column: span 5; }
+.bc-b { grid-column: span 7; background: var(--ochre); border-color: transparent; }
+.bc-c { grid-column: span 4; }
+.bc-d { grid-column: span 4; }
+.bc-e { grid-column: span 4; background: var(--text); border-color: transparent; }
+.bc-num { font-family: 'Instrument Serif', serif; font-size: 3.6rem; line-height: 1; margin-bottom: 10px; color: var(--text); }
+.bc-b .bc-num { color: rgba(255,255,255,0.9); }
+.bc-e .bc-num { color: rgba(255,255,255,0.12); position: absolute; right: 16px; bottom: -14px; font-size: 6rem; }
+.bc h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+.bc-b h3 { color: rgba(255,255,255,0.9); }
+.bc-e h3 { color: #fff; position: relative; z-index: 1; }
+.bc p { font-size: 0.86rem; line-height: 1.6; }
+.bc-b p { color: rgba(255,255,255,0.75); }
+.bc-e p { color: rgba(255,255,255,0.6); position: relative; z-index: 1; }
+.bc-chk { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+.bc-chk li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.86rem; color: var(--text-mid); line-height: 1.5; }
+.bc-b .bc-chk li { color: rgba(255,255,255,0.8); }
+.bc-chk li::before {
+  content: ''; display: block; width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.5 7l3 3 6-6' stroke='%23B8732A' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+.bc-b .bc-chk li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.5 7l3 3 6-6' stroke='rgba(255,255,255,0.7)' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+}
+
+/* Стоимость */
+.price-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xl); padding: 52px 56px;
+  box-shadow: var(--sh-3); position: relative; overflow: hidden;
+  max-width: 760px; margin: 0 auto;
+}
+.price-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--ochre) 30%, var(--slate) 70%, transparent);
+}
+.price-card::after {
+  content: ''; position: absolute; right: -60px; bottom: -60px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,115,42,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.price-left .eyebrow { margin-bottom: 10px; }
+.price-left h2 { font-size: clamp(1.5rem,3vw,2.2rem); margin-bottom: 8px; }
+.price-amount {
+  font-family: 'Instrument Serif', serif; font-size: clamp(2.6rem,5vw,3.8rem);
+  color: var(--ochre); line-height: 1; margin: 24px 0 8px; letter-spacing: -0.02em;
+}
+.price-note { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 28px; }
+.price-installment {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; background: rgba(61,90,120,0.08); border-radius: var(--r-sm);
+  font-size: 0.82rem; color: var(--slate); font-weight: 600; margin-bottom: 32px;
+}
+.price-right { padding-top: 4px; }
+.price-includes { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.price-incl-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.88rem; color: var(--text-mid); line-height: 1.5;
+}
+.price-incl-item::before {
+  content: ''; display: block; width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='rgba(184,115,42,0.10)'/%3E%3Cpath d='M5.5 9l2.5 2.5 5-5' stroke='%23B8732A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+.price-cta-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 12px; }
+
+/* Отзывы */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.rev-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 32px 30px; box-shadow: var(--sh-1); position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rev-card:hover { transform: translateY(-5px); box-shadow: var(--sh-2); }
+.rev-mark { font-family: 'Instrument Serif', serif; font-size: 4rem; line-height: 0.6; color: var(--ochre); margin-bottom: 20px; display: block; opacity: 0.65; }
+.rev-text { font-size: 0.91rem; line-height: 1.7; color: var(--text-mid); font-style: italic; margin-bottom: 26px; }
+.rev-author { display: flex; align-items: center; gap: 12px; }
+.rev-ava {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--bg-alt); border: 1px dashed var(--line-md);
+  overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+.rev-ava img { width: 100%; height: 100%; object-fit: cover; }
+.rev-ava svg { opacity: 0.35; }
+.rev-name { font-weight: 700; font-size: 0.88rem; color: var(--text); }
+.rev-who  { font-size: 0.76rem; color: var(--text-dim); margin-top: 2px; }
+.rev-note { text-align: center; margin-top: 28px; font-size: 0.82rem; color: var(--text-dim); }
+
+/* FAQ */
+.faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
+.faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
+.faq-item.open { box-shadow: var(--sh-2); border-color: var(--ochre-lt); }
+.faq-btn {
+  width: 100%; background: none; border: none; cursor: pointer; text-align: left;
+  padding: 22px 26px; font-family: 'Montserrat', sans-serif; font-size: 0.93rem;
+  font-weight: 600; color: var(--text); display: flex; align-items: center;
+  justify-content: space-between; gap: 20px; transition: color 0.2s;
+}
+.faq-btn:hover { color: var(--ochre); }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--bg-alt);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.2s;
+}
+.faq-item.open .faq-icon { transform: rotate(180deg); background: var(--ochre); }
+.faq-item.open .faq-icon svg { stroke: #fff; }
+.faq-ans {
+  display: none; padding: 0 26px 22px; border-top: 1px solid var(--line);
+  padding-top: 18px; font-size: 0.9rem; line-height: 1.7; color: var(--text-mid);
+}
+.faq-item.open .faq-ans { display: block; }
+
+/* Контакты */
+.contact-grid { display: grid; grid-template-columns: 1fr 500px; gap: 72px; align-items: start; }
+.contact-info h2 { margin-bottom: 16px; }
+.contact-info > p { font-size: 1rem; max-width: 400px; margin-bottom: 36px; }
+.channels { display: flex; flex-direction: column; gap: 10px; }
+.ch-link {
+  display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); text-decoration: none; color: var(--text);
+  font-weight: 500; font-size: 0.9rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.ch-link:hover { transform: translateX(5px); box-shadow: var(--sh-1); border-color: var(--ochre-lt); }
+.ch-ic { width: 38px; height: 38px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ch-vk { background: rgba(0,119,255,0.10); }
+
+/* Форма */
+.form-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xl); padding: 44px; box-shadow: var(--sh-3); position: relative;
+}
+.form-card::before {
+  content: ''; position: absolute; top: 0; left: 48px; right: 48px; height: 2px;
+  border-radius: 0 0 2px 2px; background: linear-gradient(90deg, transparent, var(--ochre) 40%, transparent);
+}
+.form-card h3 { font-size: 1.6rem; margin-bottom: 6px; }
+.form-card > p { font-size: 0.87rem; color: var(--text-mid); margin-bottom: 30px; }
+.fg { margin-bottom: 16px; }
+.fl { display: block; font-size: 0.76rem; font-weight: 700; color: var(--text-mid); letter-spacing: 0.04em; margin-bottom: 7px; }
+.fi, .ft {
+  width: 100%; padding: 13px 16px; background: var(--bg); border: 1.5px solid var(--line);
+  border-radius: var(--r-md); font-family: 'Montserrat', sans-serif; font-size: 0.9rem;
+  color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.fi:focus, .ft:focus { border-color: var(--ochre); box-shadow: 0 0 0 3px rgba(184,115,42,0.10); }
+.ft { min-height: 96px; resize: vertical; }
+.form-submit { width: 100%; justify-content: center; margin-top: 6px; font-size: 0.95rem; padding: 16px; }
+.form-success { display: none; text-align: center; padding: 32px 16px; }
+.form-success-icon {
+  width: 56px; height: 56px; border-radius: 50%; background: rgba(184,115,42,0.10);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+}
+.form-success h4 { font-size: 1.4rem; margin-bottom: 8px; }
+.form-success p { font-size: 0.9rem; }
+.form-note { text-align: center; font-size: 0.72rem; color: var(--text-dim); margin-top: 14px; line-height: 1.5; }
+
+/* CTA полоса */
+.cta-strip { background: var(--text); padding: 96px 28px; text-align: center; position: relative; overflow: hidden; }
+.cta-strip::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 110%, rgba(184,115,42,0.18) 0%, transparent 65%);
+}
+.cta-strip h2 { color: #fff; font-size: clamp(1.9rem,4.5vw,3.2rem); margin-bottom: 16px; position: relative; }
+.cta-strip p { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 40px; position: relative; }
+
+/* Футер — кофе-стайл */
+footer { background: var(--bg-alt); border-top: 1px solid var(--line); padding: 60px 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-info h3 {
+  font-family: 'Instrument Serif', serif; font-size: 1.5rem;
+  color: var(--text); margin-bottom: 20px; line-height: 1.2;
+}
+.footer-contacts { display: flex; flex-direction: column; gap: 12px; }
+.footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.88rem; color: var(--text-mid);
+}
+.footer-contact-item svg { flex-shrink: 0; opacity: 0.55; }
+.footer-right h3 {
+  font-family: 'Instrument Serif', serif; font-size: 1.5rem;
+  color: var(--text); margin-bottom: 8px; line-height: 1.2;
+}
+.footer-right p { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 20px; }
+.footer-vk-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; background: var(--ochre); color: #fff;
+  border-radius: 100px; text-decoration: none; font-size: 0.88rem;
+  font-weight: 600; transition: background 0.2s, transform 0.2s;
+}
+.footer-vk-btn:hover { background: var(--ochre-dk); transform: translateY(-2px); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 28px; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 14px;
+}
+.footer-bottom-logo { font-family: 'Instrument Serif', serif; font-size: 1rem; color: var(--text-mid); }
+.footer-bottom-logo em { color: var(--ochre); font-style: italic; }
+.footer-copy { font-size: 0.76rem; color: var(--text-dim); }
+.footer-links { display: flex; gap: 20px; list-style: none; }
+.footer-links a { color: var(--text-dim); font-size: 0.76rem; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+.footer-social { display: flex; gap: 10px; }
+.footer-soc-btn {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
+  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.footer-soc-btn:hover { border-color: var(--ochre); background: rgba(184,115,42,0.07); }
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; text-align: left; }
+}
+
+/* Адаптив */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card { max-width: 400px; margin: 0 auto; }
+  .usp-grid { grid-template-columns: repeat(2, 1fr); }
+  .usp-item:nth-child(2) { border-right: none; }
+  .usp-item:nth-child(3) { border-top: 1px solid rgba(184,115,42,0.35); }
+  .usp-item:nth-child(4) { border-top: 1px solid rgba(184,115,42,0.35); border-right: none; }
+  .for-whom-inner { grid-template-columns: 1fr; }
+  .for-whom-photo { position: static; max-width: 500px; }
+  .problems { grid-template-columns: repeat(2, 1fr); }
+  .method-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-wrap { position: static; max-width: 260px; margin: 0 auto 36px; }
+  .about-photo { aspect-ratio: 3/4; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: 1fr; gap: 32px; }
+  .price-card { padding: 36px 32px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: repeat(6, 1fr); }
+  .bc-a,.bc-b,.bc-c { grid-column: span 6; }
+  .bc-d { grid-column: span 3; } .bc-e { grid-column: span 3; }
+}
+@media (max-width: 760px) {
+  .intro-video-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+}
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .burger { display: flex; }
+}
+@media (max-width: 600px) {
+  .sec { padding: 72px 0; } .wrap { padding: 0 18px; }
+  .hero { padding: 110px 0 72px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+  .problems { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: 1fr; }
+  .bc-a,.bc-b,.bc-c,.bc-d,.bc-e { grid-column: span 1; }
+  .creds { grid-template-columns: 1fr; }
+  .t-includes { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .form-card { padding: 28px 22px; }
+  .timeline { grid-template-columns: 1fr; }
+  .t-dot { width: 48px; height: 48px; }
+  .usp-grid { grid-template-columns: repeat(2, 1fr); }
+  .usp-item { padding: 20px; border-right: none; border-bottom: 1px solid rgba(184,115,42,0.35); }
+  .usp-item:last-child { border-bottom: none; }
+}
+
+/* ── Органический blob за фото-карточкой ───────────────── */
+.hero-visual { position: relative; }
+.hero-blob-bg {
+  position: absolute;
+  top: -40px; right: -52px; bottom: -40px; left: -20px;
+  background: linear-gradient(145deg, var(--bg-alt) 0%, var(--surface-2) 100%);
+  border-radius: 62% 38% 55% 45% / 44% 58% 42% 56%;
+  z-index: 0;
+  box-shadow: 0 8px 48px rgba(35,31,26,0.08);
+}
+.hero-visual .hero-card { position: relative; z-index: 1; }
+
+/* ── Полоса иконок (кофе-стайл — вертикальные) ─────────── */
+.feat-strip { background: var(--surface); padding: 52px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.feat-strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.feat-col { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 28px; border-right: 1px solid var(--line); }
+.feat-col:last-child { border-right: none; }
+.feat-col-ic { width: 52px; height: 52px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+.feat-col-txt strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 6px; }
+.feat-col-txt span { font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
+@media (max-width: 960px) {
+  .feat-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .feat-col { padding: 20px; }
+  .feat-col:nth-child(2) { border-right: none; }
+  .feat-col:nth-child(3) { border-top: 1px solid var(--line); }
+  .feat-col:nth-child(4) { border-top: 1px solid var(--line); border-right: none; }
+}
+@media (max-width: 600px) {
+  .feat-strip-inner { grid-template-columns: 1fr 1fr; }
+  .feat-strip { padding: 36px 0; }
+}
+
+/* ── Тёмная секция «4 причины» ─────────────────────────── */
+.reasons { background: var(--text); padding: 96px 0; position: relative; overflow: hidden; }
+.reasons::before {
+  content: ''; position: absolute; top: -120px; left: -80px;
+  width: 440px; height: 440px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,115,42,0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+.reasons::after {
+  content: ''; position: absolute; bottom: -100px; right: -60px;
+  width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,90,120,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.reasons-hdr { text-align: center; margin-bottom: 56px; }
+.reasons-hdr .eyebrow { color: var(--ochre-lt); }
+.reasons-hdr h2 { color: #fff; font-size: clamp(1.6rem,3.5vw,2.5rem); }
+.reasons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; position: relative; z-index: 1; }
+.r-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-xl); padding: 36px 28px; position: relative; overflow: hidden;
+  transition: background 0.3s ease, transform 0.25s ease;
+}
+.r-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); }
+.r-num {
+  font-family: 'Instrument Serif', serif; font-size: 8rem; line-height: 0.8;
+  color: rgba(255,255,255,0.05); position: absolute; right: 10px; bottom: -14px;
+  letter-spacing: -0.04em; pointer-events: none;
+}
+.r-card-accent { background: var(--ochre) !important; border-color: transparent !important; }
+.r-card-accent:hover { background: var(--ochre-dk) !important; }
+.r-card-accent .r-num { color: rgba(255,255,255,0.13); }
+.r-card h3 { font-family: 'Montserrat',sans-serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; line-height: 1.4; }
+.r-card p { font-size: 0.86rem; line-height: 1.65; color: rgba(255,255,255,0.55); position: relative; z-index: 1; }
+.r-card-accent p { color: rgba(255,255,255,0.85); }
+@media (max-width: 960px) {
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .reasons-grid { grid-template-columns: 1fr; }
+  .reasons { padding: 72px 0; }
+}
+
+/* ── SVG-волны между секциями ───────────────────────────── */
+.sec-wave { display: block; width: 100%; overflow: hidden; line-height: 0; margin: -1px 0; }
+.sec-wave svg { display: block; width: 100%; }
+
+/* ── Hero-чипы (как в кофе-сайте) ──────────────────────── */
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hero-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px; background: rgba(253,250,244,0.85);
+  border: 1px solid var(--line-md); border-radius: 100px;
+  font-size: 0.77rem; font-weight: 600; color: var(--text-mid);
+  backdrop-filter: blur(8px); box-shadow: 0 2px 8px rgba(35,31,26,0.06);
+}
+.hero-chip svg { flex-shrink: 0; }
+
+/* ── Секция результатов (нумерованные карточки) ───── */
+.results-sec { background: var(--bg-alt); padding: 96px 0; }
+.results-sec-head { text-align: center; margin-bottom: 52px; }
+.results-sec-head .eyebrow { color: var(--ochre); }
+.results-sec-head h2 { margin-bottom: 12px; }
+.results-sec-head p { color: var(--text-mid); max-width: 560px; margin: 0 auto; font-size: 0.95rem; line-height: 1.7; }
+.results-photo-wrap {
+  border-radius: 20px; overflow: hidden;
+  margin-bottom: 52px;
+  box-shadow: 0 16px 56px rgba(35,31,26,0.12);
+}
+.results-photo-wrap img { width: 100%; display: block; object-fit: cover; object-position: center 25%; max-height: 400px; }
+.results-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.r2-card {
+  background: var(--surface); border-radius: 20px;
+  padding: 32px 24px 28px; position: relative; overflow: hidden;
+  border: 1px solid rgba(35,31,26,0.07);
+  box-shadow: 0 4px 20px rgba(35,31,26,0.06);
+}
+.r2-card-accent { background: var(--ochre); border-color: transparent; }
+.r2-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 5rem; font-weight: 400; line-height: 1;
+  color: rgba(35,31,26,0.07); position: absolute; top: 14px; right: 18px;
+  letter-spacing: -0.04em;
+}
+.r2-card-accent .r2-num { color: rgba(255,255,255,0.18); }
+.r2-title {
+  font-family: 'Instrument Serif', serif; font-size: 1.15rem;
+  color: var(--text); margin-bottom: 10px; line-height: 1.35; position: relative;
+}
+.r2-card-accent .r2-title { color: #fff; }
+.r2-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; position: relative; }
+.r2-card-accent .r2-desc { color: rgba(255,255,255,0.75); }
+.r2-tag {
+  display: inline-block; margin-top: 14px; padding: 4px 12px;
+  background: rgba(184,115,42,0.12); border-radius: 100px;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; color: var(--ochre);
+  position: relative;
+}
+.r2-card-accent .r2-tag { background: rgba(255,255,255,0.20); color: #fff; }
+.btn-outline-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 30px; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 100px;
+  color: #fff; font-size: 0.88rem; font-weight: 600; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline-white:hover { border-color: var(--ochre-lt); background: rgba(184,115,42,0.12); }
+@media (max-width: 960px) {
+  .results-cards { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .results-cards { grid-template-columns: 1fr; }
+  .results-photo-wrap img { max-height: 260px; }
+}
+
+/* ── Декоративный разделитель (= "♥ Рекомендуем ♥") ─────── */
+.ornament-row {
+  display: flex; align-items: center; gap: 20px; padding: 48px 0 0;
+}
+.ornament-row::before, .ornament-row::after {
+  content: ''; flex: 1; height: 1px; background: var(--line-md);
+}
+.ornament-row span {
+  font-family: 'Instrument Serif', serif; font-size: 1.15rem;
+  color: var(--text-mid); white-space: nowrap;
+  display: flex; align-items: center; gap: 12px; letter-spacing: 0.01em;
+}
+.ornament-row span svg { color: var(--ochre); flex-shrink: 0; }
+
+/* ── Горизонтальные карточки отзывов (= "Рекомендуем попробовать") ── */
+.hrev-list { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 56px; }
+.hrev-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 20px; padding: 36px 32px 28px;
+  box-shadow: var(--sh-1); transition: transform 0.22s, box-shadow 0.22s;
+  position: relative; overflow: hidden;
+}
+.hrev-card:hover { transform: translateY(-4px); box-shadow: var(--sh-2); }
+.hrev-big-quote {
+  font-family: 'Instrument Serif', serif; font-size: 8rem; line-height: 0.7;
+  color: var(--ochre); opacity: 0.10; position: absolute; top: 16px; left: 20px;
+  pointer-events: none; user-select: none;
+}
+.hrev-text {
+  font-family: 'Instrument Serif', serif; font-size: 1.05rem; line-height: 1.75;
+  color: var(--text); margin-bottom: 24px; position: relative; padding-top: 20px;
+}
+.hrev-tag {
+  display: inline-block; padding: 5px 14px;
+  background: rgba(184,115,42,0.10); border-radius: 100px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--ochre);
+}
+.rev-note { text-align: center; padding: 0 0 24px; font-size: 0.82rem; color: var(--text-dim); }
+.hrev-clamp { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; }
+.hrev-clamp.expanded { display: block; -webkit-line-clamp: unset; }
+.hrev-expand {
+  background: none; border: none; cursor: pointer; padding: 0; margin-top: 4px;
+  font-size: 0.8rem; font-weight: 600; color: var(--ochre); letter-spacing: 0.04em;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-style: dotted;
+}
+.hrev-expand:hover { color: var(--ochre-dk); }
+.hrev-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.hrev-meta { display: flex; flex-direction: column; gap: 2px; }
+.hrev-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.hrev-date { font-size: 0.75rem; color: var(--text-dim); }
+@media (max-width: 700px) {
+  .hrev-list { grid-template-columns: 1fr; }
+}
+
+/* ── "Зёрна"-стиль: тёмная секция с фото справа ─────────── */
+.pride-sec { background: var(--text); padding: 96px 0; overflow: hidden; position: relative; }
+.pride-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.pride-left .eyebrow { color: var(--ochre-lt); }
+.pride-left h2 { color: #fff; margin-bottom: 16px; font-size: clamp(1.6rem,3.5vw,2.6rem); }
+.pride-left p { color: rgba(255,255,255,0.58); margin-bottom: 32px; line-height: 1.75; }
+.pride-features { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+.pride-feat { display: flex; align-items: flex-start; gap: 14px; }
+.pride-feat-ic {
+  width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(184,115,42,0.15); display: flex; align-items: center; justify-content: center;
+}
+.pride-feat-txt strong { display: block; font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.pride-feat-txt span { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.pride-right { position: relative; }
+.pride-photo {
+  width: 100%; aspect-ratio: 4/5; border-radius: var(--r-xl); overflow: hidden;
+  box-shadow: 0 24px 72px rgba(0,0,0,0.35);
+}
+.pride-photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 960px) {
+  .pride-inner { grid-template-columns: 1fr; gap: 40px; }
+  .pride-photo { aspect-ratio: 3/2; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ Навигация ═══════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5" stroke-width="1.8"/></svg>
+      </div>
+      <div class="nav-logo-text">
+        <span>Говорим <em>плавно</em></span>
+        <span>логопед Меренкова</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#for-whom">Для кого</a></li>
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#about">Специалист</a></li>
+      <li><a href="#results">Результаты</a></li>
+      <li><a href="#price">Стоимость</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+    </ul>
+    <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Записаться</a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">&#xd7;</button>
+  <a href="#for-whom" onclick="closeMob()">Для кого</a>
+  <a href="#program" onclick="closeMob()">Программа</a>
+  <a href="#about" onclick="closeMob()">Специалист</a>
+  <a href="#results" onclick="closeMob()">Результаты</a>
+  <a href="#price" onclick="closeMob()">Стоимость</a>
+  <a href="#faq" onclick="closeMob()">Вопросы</a>
+  <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" onclick="closeMob()" class="btn btn-primary">Записаться</a>
+</div>
+
+<!-- ══ Герой ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div>
+        <div class="hero-pill rv">
+          <span class="hero-pill-dot"></span>
+          Онлайн-интенсив для&nbsp;детей с&nbsp;заиканием
+        </div>
+        <h1 class="rv rv-d1">
+          Ваш ребёнок заговорит <em>плавно.</em><br>И&nbsp;вы&nbsp;сами сможете это поддержать
+        </h1>
+        <p class="hero-lead rv rv-d2">
+          15&nbsp;лет работы с&nbsp;заикающимися детьми — и&nbsp;главное, что я&nbsp;поняла: результат в&nbsp;кабинете ничего не&nbsp;значит. Важно, чтобы ребёнок говорил свободно дома, в&nbsp;школе, с&nbsp;друзьями. И&nbsp;чтобы вы&nbsp;знали, как ему помочь.
+        </p>
+        <div class="hero-actions rv rv-d3">
+          <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Записаться на&nbsp;интенсив
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#program" class="btn btn-ghost">Как устроен интенсив</a>
+        </div>
+        <div class="hero-chips rv rv-d4">
+          <div class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            40&nbsp;минут каждое занятие
+          </div>
+          <div class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Индивидуально
+          </div>
+          <div class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Онлайн, Zoom
+          </div>
+          <div class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Результат с&nbsp;4-го занятия
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob-bg"></div>
+      <div class="hero-card rv rv-d2">
+        <div class="hero-photo" id="heroPhoto" style="position:relative;">
+          <img src="wVOW-VchdBOMuQQ5LVQD8fMlV7ZOXSJJM2rhc7xWG1HVSw8YMjFyQMRWiWB_xUPa9wD3K8dwZnp7Ji1qoCX8Vv5W.jpg" alt="Логопед — специалист по преодолению заикания">
+          <div class="hero-photo-badge">
+            <span>15+</span>
+            лет опыта
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">15</div>
+            <div class="stat-label">лет работы с&nbsp;заикающимися детьми</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100+</div>
+            <div class="stat-label">семей прошли интенсив</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4-е</div>
+            <div class="stat-label">занятие — первые изменения</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">32</div>
+            <div class="stat-label">видеоурока в&nbsp;программе</div>
+          </div>
+        </div>
+      </div>
+      </div><!-- /hero-visual -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ Полоса иконок ═════════════════════════════════════════ -->
+<div class="feat-strip">
+  <div class="wrap">
+    <div class="feat-strip-inner">
+      <div class="feat-col rv">
+        <div class="feat-col-ic">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="rgba(184,115,42,0.08)"/>
+            <path d="M24 14a10 10 0 1 0 10 10A10 10 0 0 0 24 14z" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <path d="M24 20v4l2.5 2.5" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-col-txt">
+          <strong>15 лет практики</strong>
+          <span>Специализируется на работе<br>с заикающимися детьми</span>
+        </div>
+      </div>
+      <div class="feat-col rv rv-d1">
+        <div class="feat-col-ic">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="rgba(184,115,42,0.08)"/>
+            <path d="M30 31v-2a6 6 0 0 0-6-6h-6a6 6 0 0 0-6 6v2" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <circle cx="21" cy="19" r="4" stroke="var(--ochre)" stroke-width="1.8" fill="none"/>
+            <path d="M34 31v-2a6 6 0 0 0-4.5-5.8M29 14.2a6 6 0 0 1 0 11.6" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-col-txt">
+          <strong>100+ семей</strong>
+          <span>Прошли интенсив<br>и говорят плавно</span>
+        </div>
+      </div>
+      <div class="feat-col rv rv-d2">
+        <div class="feat-col-ic">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="rgba(184,115,42,0.08)"/>
+            <rect x="10" y="14" width="28" height="18" rx="3" stroke="var(--ochre)" stroke-width="1.8" fill="none"/>
+            <path d="M18 32v4M30 32v4M15 36h18" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="feat-col-txt">
+          <strong>Онлайн, Zoom</strong>
+          <span>Индивидуальные занятия<br>из любой точки мира</span>
+        </div>
+      </div>
+      <div class="feat-col rv rv-d3">
+        <div class="feat-col-ic">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="rgba(184,115,42,0.08)"/>
+            <polyline points="38,24 32,24 28,36 20,12 16,24 10,24" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-col-txt">
+          <strong>Уже с 4-го занятия</strong>
+          <span>Первые заметные изменения<br>в плавности речи</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- wave: surface → dark -->
+<div class="sec-wave" style="background:#FDFAF4">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,52 C400,0 1040,0 1440,52 L1440,52 L0,52 Z" fill="#231F1A"/>
+  </svg>
+</div>
+
+<!-- ══ USP-полоса ════════════════════════════════════════════ -->
+<div class="usp-strip rv">
+  <div class="wrap">
+    <div class="usp-grid">
+      <div class="usp-item">
+        <div class="usp-num">10</div>
+        <div class="usp-label">дней ежедневных<br>занятий</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num">+&thinsp;3</div>
+        <div class="usp-label">недели поддерживающих<br>занятий</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num">32</div>
+        <div class="usp-label">видеоурока<br>в&nbsp;программе</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-num">75&thinsp;000&thinsp;&#8381;</div>
+        <div class="usp-label">стоимость полного<br>интенсива</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- wave: dark → bg-alt -->
+<div class="sec-wave" style="background:#231F1A">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C400,52 1040,52 1440,0 L1440,52 L0,52 Z" fill="#EAE0CE"/>
+  </svg>
+</div>
+
+<!-- ══ Секция результатов (нумерованные карточки) ════ -->
+<section class="results-sec">
+  <div class="wrap">
+    <div class="results-sec-head rv">
+      <span class="eyebrow">Результаты интенсива</span>
+      <h2>Что меняется уже в&nbsp;процессе</h2>
+      <p>Изменения начинаются с&nbsp;первых занятий. К&nbsp;концу интенсива ребёнок говорит плавно в&nbsp;реальных ситуациях — не&nbsp;только в&nbsp;кабинете логопеда.</p>
+    </div>
+    <div class="results-photo-wrap rv rv-d1">
+      <img src="nvmRmGRuHi7EcMtkum5yfUezrnoGom9dy4GonB7By3PqTQEOfyzhutnrrZ5OqjU_O0ZKM-gkJ6ZsKm4mbpfZDWbt.jpg" alt="Логопед и ребёнок на занятии у зеркала">
+    </div>
+    <div class="results-cards">
+      <div class="r2-card rv">
+        <div class="r2-num">01</div>
+        <div class="r2-title">С 4-го занятия</div>
+        <div class="r2-desc">Плавная речь появляется на&nbsp;уроках и&nbsp;с&nbsp;незнакомыми людьми</div>
+        <span class="r2-tag">Первые изменения</span>
+      </div>
+      <div class="r2-card r2-card-accent rv rv-d1">
+        <div class="r2-num">02</div>
+        <div class="r2-title">К 7–10 занятию</div>
+        <div class="r2-desc">Свободная речь начинает преобладать вне занятий и&nbsp;дома</div>
+        <span class="r2-tag">Устойчивый эффект</span>
+      </div>
+      <div class="r2-card rv rv-d2">
+        <div class="r2-num">03</div>
+        <div class="r2-title">Родитель — «логопед дома»</div>
+        <div class="r2-desc">Осваивает методику и&nbsp;помогает ребёнку самостоятельно закрепить результат</div>
+        <span class="r2-tag">«Домашний логопед»</span>
+      </div>
+      <div class="r2-card rv rv-d3">
+        <div class="r2-num">04</div>
+        <div class="r2-title">3 недели поддержки</div>
+        <div class="r2-desc">Продолжаем работать вместе после интенсива — до&nbsp;устойчивого результата</div>
+        <span class="r2-tag">Без брошенности</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Для кого ══════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="for-whom">
+  <div class="wrap">
+    <div class="for-whom-inner">
+      <div class="for-whom-photo rv">
+        <img src="U9tT9O_YMq-GadEaXa4hYJaoyBRBKPSaVZqBcMQHYJfsqg-jnXNmKnkp8QAlJM7XLUavDKRAYNaYAXnzCe98pPMp.jpg" alt="Логопед и ребёнок">
+      </div>
+      <div class="for-whom-content">
+        <div class="sec-header rv" style="text-align:left;max-width:none;">
+          <span class="eyebrow">Для кого</span>
+          <h2>Узнаёте своего ребёнка?</h2>
+          <p>Интенсив разработан для детей с выраженным заиканием, которым нужна системная и интенсивная работа над плавностью речи.</p>
+        </div>
+        <div class="problems">
+      <div class="prob-card rv">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Заикается при волнении</h3>
+        <p>Речь ломается в важные моменты — перед классом, при знакомстве, на&nbsp;занятиях. Ребёнок начинает избегать общения.</p>
+      </div>
+      <div class="prob-card rv rv-d1">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>«Кабинетная речь»</h3>
+        <p>В кабинете у логопеда говорит хорошо, а&nbsp;дома и&nbsp;в&nbsp;школе — снова запинки. Результат не&nbsp;переносится в&nbsp;жизнь.</p>
+      </div>
+      <div class="prob-card rv rv-d2">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Переживает из-за речи</h3>
+        <p>Стесняется, расстраивается, злится после трудных слов. Заикание влияет на эмоциональное состояние и&nbsp;уверенность.</p>
+      </div>
+      <div class="prob-card rv rv-d1">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.05"/></svg>
+        </div>
+        <h3>Были рецидивы</h3>
+        <p>Занимались у разных специалистов, становилось лучше — а&nbsp;потом всё возвращалось. Хочется устойчивого результата.</p>
+      </div>
+      <div class="prob-card rv rv-d2">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Зависимость от&nbsp;специалиста</h3>
+        <p>Годами водите ребёнка к&nbsp;логопеду и&nbsp;не представляете, как обойтись без&nbsp;регулярных посещений.</p>
+      </div>
+      <div class="prob-card rv rv-d3">
+        <div class="prob-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Не знаете, как помочь</h3>
+        <p>Хочется поддержать, но неясно, что делать дома. После интенсива вы освоите методику и&nbsp;сможете помочь сами.</p>
+      </div>
+    </div>
+      </div><!-- /for-whom-content -->
+    </div><!-- /for-whom-inner -->
+  </div>
+</section>
+
+<!-- wave: bg-alt → dark -->
+<div class="sec-wave" style="background:#EAE0CE">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,52 C400,0 1040,0 1440,52 L1440,52 L0,52 Z" fill="#231F1A"/>
+  </svg>
+</div>
+
+<!-- ══ 4 причины почему это работает ═════════════════════════ -->
+<section class="reasons">
+  <div class="wrap">
+    <div class="reasons-hdr rv">
+      <span class="eyebrow">Почему это работает</span>
+      <h2>Не очередные логопедические занятия</h2>
+    </div>
+    <div class="reasons-grid">
+      <div class="r-card rv">
+        <div class="r-num">1</div>
+        <h3>Ежедневное погружение</h3>
+        <p>10 дней подряд — нейронные пути перестраиваются только при систематической ежедневной практике. Ни одно занятие в неделю не даст такого эффекта.</p>
+      </div>
+      <div class="r-card r-card-accent rv rv-d1">
+        <div class="r-num">2</div>
+        <h3>Тело, дыхание, ритм</h3>
+        <p>Заикание — это не только речь. Мы работаем с телесными зажимами, дыхательной системой и ритмом движения. Именно поэтому результат устойчивый.</p>
+      </div>
+      <div class="r-card rv rv-d2">
+        <div class="r-num">3</div>
+        <h3>Родитель — домашний логопед</h3>
+        <p>Вы осваиваете методику вместе с ребёнком. После интенсива можете самостоятельно поддерживать результат и выйти из рецидива, если он случится.</p>
+      </div>
+      <div class="r-card rv rv-d3">
+        <div class="r-num">4</div>
+        <h3>Речь в&nbsp;жизни, не в&nbsp;кабинете</h3>
+        <p>Все задания — для реальных ситуаций: школа, общение с друзьями, магазин. Потому что «хорошо у логопеда» — это не победа над заиканием.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- wave: dark → bg -->
+<div class="sec-wave" style="background:#231F1A">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C400,52 1040,52 1440,0 L1440,52 L0,52 Z" fill="#F4EEE2"/>
+  </svg>
+</div>
+
+<!-- ══ Суть метода ═══════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="method-grid">
+
+      <div class="method-content rv">
+        <span class="eyebrow">Суть метода</span>
+        <h2>Не просто «хорошо в&nbsp;кабинете» — плавная речь в&nbsp;жизни</h2>
+        <p class="about-text" style="margin-bottom:16px;">
+          Большинство логопедических занятий работают с&nbsp;заиканием в&nbsp;контролируемых условиях. Ребёнок говорит хорошо у специалиста — и&nbsp;снова запинается, как только выходит за&nbsp;дверь. Это не&nbsp;победа над заиканием. Это «кабинетная речь».
+        </p>
+        <p class="about-text" style="margin-bottom:0;">
+          В&nbsp;моём интенсиве мы идём другим путём: обучаем <strong>систему управления речью</strong> через тело, дыхание и&nbsp;ритм. Вы&nbsp;как родитель становитесь «домашним логопедом» — и&nbsp;после интенсива самостоятельно можете поддержать результат и&nbsp;выйти из&nbsp;рецидива, если он&nbsp;случится.
+        </p>
+      </div>
+
+      <div class="method-visual rv rv-d1">
+        <img src="3bo59yH4VtAENgo6KiryquHCbQiR9TidJg-8l7iOrvOnBoG-Yq_ypGZWEK5Tnw_ijbc32jMQoVbicdFrT2iibJ7H.jpg" alt="Логопед и ребёнок" style="width:100%;border-radius:var(--r-lg);margin-bottom:24px;display:block;">
+        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;">Обычный подход vs&nbsp;этот интенсив</p>
+        <div class="method-compare">
+          <div class="method-row">
+            <div>
+              <div class="method-row-label">Обычно</div>
+              <div class="method-bad">Результат только в&nbsp;кабинете</div>
+            </div>
+            <div class="method-vs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--line-md)" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </div>
+            <div>
+              <div class="method-row-label">Интенсив</div>
+              <div class="method-good">Речь переносится в&nbsp;жизнь</div>
+            </div>
+          </div>
+          <div class="method-row">
+            <div>
+              <div class="method-bad">Годами ходить к&nbsp;специалисту</div>
+            </div>
+            <div class="method-vs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--line-md)" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </div>
+            <div>
+              <div class="method-good">5&nbsp;недель — и&nbsp;инструмент на&nbsp;всю жизнь</div>
+            </div>
+          </div>
+          <div class="method-row">
+            <div>
+              <div class="method-bad">Родитель не&nbsp;понимает, как помочь</div>
+            </div>
+            <div class="method-vs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--line-md)" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </div>
+            <div>
+              <div class="method-good">Родитель — «домашний логопед»</div>
+            </div>
+          </div>
+          <div class="method-row">
+            <div>
+              <div class="method-bad">Рецидив = начинать сначала</div>
+            </div>
+            <div class="method-vs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--line-md)" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </div>
+            <div>
+              <div class="method-good">Рецидив = знаете, что делать</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ Программа ═════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="program">
+  <div class="wrap">
+    <div class="sec-header rv">
+      <span class="eyebrow">Программа</span>
+      <h2>Два этапа — одна система</h2>
+      <p>5&nbsp;недель работы выстроены так, чтобы сначала создать новую манеру говорения, а&nbsp;затем надёжно закрепить её в&nbsp;повседневной жизни.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="t-phase rv">
+        <div class="t-dot t-dot-1">I</div>
+        <div class="t-body">
+          <span class="t-tag">Дни 1–10 &middot; По 40&nbsp;минут ежедневно</span>
+          <h3>Интенсивное погружение</h3>
+          <ul class="t-list">
+            <li>Ежедневные индивидуальные занятия в&nbsp;Zoom — максимальное погружение в&nbsp;новую манеру говорения</li>
+            <li>Системная работа с&nbsp;дыханием, ритмом речи и&nbsp;телесными зажимами</li>
+            <li>Уже к&nbsp;4-му занятию ребёнок начинает говорить плавно на&nbsp;уроках</li>
+            <li>К&nbsp;7–10&nbsp;занятию свободная речь преобладает в&nbsp;повседневной жизни вне занятий</li>
+            <li>Индивидуальный подход, адаптированный под особенности вашего ребёнка</li>
+            <li>Личный контакт с&nbsp;родителем после каждого занятия: домашнее задание, рекомендации, ответы на&nbsp;вопросы</li>
+          </ul>
+          <div class="t-includes">
+            <div class="t-incl-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              32&nbsp;видеоурока
+            </div>
+            <div class="t-incl-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Конспекты занятий
+            </div>
+            <div class="t-incl-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Чат поддержки
+            </div>
+            <div class="t-incl-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Домашние задания с&nbsp;видеоинструкциями
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-phase rv">
+        <div class="t-dot t-dot-2">II</div>
+        <div class="t-body">
+          <span class="t-tag">Недели 3–5 &middot; 2&nbsp;занятия в&nbsp;неделю по&nbsp;40&nbsp;минут</span>
+          <h3>Поддерживающий этап</h3>
+          <ul class="t-list">
+            <li>Плавный переход: ребёнок самостоятельно контролирует речь в&nbsp;разных ситуациях</li>
+            <li>Закрепление новых нейронных паттернов через практику в&nbsp;реальных условиях жизни</li>
+            <li>Минимизация рецидивов благодаря регулярной практике и&nbsp;методическим рекомендациям</li>
+            <li>Родитель полностью осваивает методику — становится «домашним логопедом»</li>
+            <li>Формируется устойчивый нейронный путь, закрепляющий привычку говорить без&nbsp;запинок</li>
+          </ul>
+          <div class="t-gift">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--slate)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            <span><strong>В подарок:</strong> месяц подписки на&nbsp;логопедические зарядки «Непослушный язычок»</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ О специалисте ════════════════════════════════════════ -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-photo-wrap rv">
+        <div class="about-photo" id="aboutPhoto">
+          <img src="Amf2bK3sXx_Bry2ddHJfgFJJ6v9TSAII48xIeYxkYh6mh4rMq0c4cCrcNQliFuM_Jhh9kiO_p21XEMyvsWsxCj9q.jpg" alt="Логопед">
+        </div>
+        <div style="margin-top:20px;">
+          <button onclick="toggleDiploma(this)" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1.5px solid var(--line-md);border-radius:100px;padding:9px 20px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);letter-spacing:0.04em;transition:border-color 0.2s,color 0.2s;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Дипломы и сертификаты
+          </button>
+          <div id="diplomaVideo" style="display:none;margin-top:14px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(35,31,26,0.14);background:#000;aspect-ratio:9/16;width:100%;">
+            <video id="diplomaVid" src="6720281971363.mp4" playsinline controls style="width:100%;height:100%;display:block;object-fit:cover;"></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <span class="eyebrow rv">Специалист</span>
+        <h2 class="rv">Виктория Меренкова</h2>
+        <p class="about-name-sub rv">Логопед &middot; Специалист по&nbsp;преодолению заикания</p>
+
+        <div class="about-text rv">
+          <p>15&nbsp;лет я&nbsp;работаю с&nbsp;заикающимися детьми. За&nbsp;это время я&nbsp;поняла одну важную вещь: если родитель не&nbsp;понимает методику — результат не&nbsp;держится. Ребёнок говорит хорошо на&nbsp;занятии, уходит домой — и&nbsp;через неделю всё сначала.</p>
+          <p>Именно поэтому в&nbsp;моём интенсиве вы&nbsp;занимаетесь вместе с&nbsp;ребёнком. Вы&nbsp;не&nbsp;просто наблюдаете — вы&nbsp;осваиваете инструмент. После интенсива вы&nbsp;становитесь «домашним логопедом»: знаете, как поддержать плавную речь и&nbsp;что делать, если вдруг случится рецидив.</p>
+          <p>Я&nbsp;не&nbsp;подсаживаю на&nbsp;себя. Моя цель — чтобы вы&nbsp;больше не&nbsp;нуждались в&nbsp;специалисте.</p>
+        </div>
+
+        <div class="creds rv">
+          <div class="cred">
+            <div class="cred-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="cred-txt">Высшее логопедическое образование</div>
+          </div>
+          <div class="cred">
+            <div class="cred-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="cred-txt">15&nbsp;лет практики</div>
+          </div>
+          <div class="cred">
+            <div class="cred-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="cred-txt">100+ семей<br>прошли интенсив</div>
+          </div>
+          <div class="cred">
+            <div class="cred-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="cred-txt">Авторская методика<br>работы с&nbsp;речью</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ Видео-знакомство ══════════════════════════════════════ -->
+<section class="intro-video-sec">
+  <div class="wrap">
+    <div class="intro-video-inner rv">
+      <div class="intro-video-wrap">
+        <video src="19301327375011.mp4" playsinline controls style="width:100%;height:100%;display:block;border-radius:20px;"></video>
+      </div>
+      <div class="intro-video-label">
+        <span class="eyebrow">Знакомство</span>
+        <h2>Виктория рассказывает о&nbsp;себе</h2>
+        <p>Посмотрите короткое видео — чтобы познакомиться до первого занятия.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Результаты — бенто ════════════════════════════════════ -->
+<section class="sec sec-alt" id="results">
+  <div class="wrap">
+    <div class="sec-header rv">
+      <span class="eyebrow">Результаты</span>
+      <h2>Что меняется к&nbsp;концу интенсива</h2>
+    </div>
+
+    <div class="bento">
+      <div class="bc bc-a rv">
+        <div class="bc-num">4-е</div>
+        <h3>занятие — первые изменения</h3>
+        <p>Уже к&nbsp;четвёртому уроку ребёнок начинает говорить плавно прямо на&nbsp;занятии. Это первый видимый сдвиг.</p>
+      </div>
+      <div class="bc bc-b rv rv-d1">
+        <div class="bc-num">7–10</div>
+        <h3>занятий — свободная речь в&nbsp;жизни</h3>
+        <ul class="bc-chk">
+          <li>Плавная речь преобладает вне занятий</li>
+          <li>Ребёнок говорит свободно в&nbsp;школе и&nbsp;с&nbsp;друзьями</li>
+          <li>Появляется уверенность в&nbsp;общении</li>
+        </ul>
+      </div>
+      <div class="bc bc-c rv">
+        <div class="bc-num" style="font-size:2rem;color:var(--ochre);line-height:1.2;margin-bottom:12px;">Новый<br>паттерн</div>
+        <h3>Нейронный путь</h3>
+        <p>Формируется устойчивая привычка говорить без&nbsp;запинок. Мозг переучивается на&nbsp;уровне автоматизма.</p>
+      </div>
+      <div class="bc bc-d rv rv-d1">
+        <div class="bc-num" style="font-size:2rem;color:var(--slate);line-height:1.2;margin-bottom:12px;">Защита</div>
+        <h3>От&nbsp;рецидивов</h3>
+        <p>Вы&nbsp;знаете методику и&nbsp;можете помочь ребёнку самостоятельно, если заикание вернётся.</p>
+      </div>
+      <div class="bc bc-e rv rv-d2">
+        <div class="bc-num">+</div>
+        <h3>Эмоциональный сдвиг</h3>
+        <p>Ребёнок перестаёт бояться говорить. Улучшается самооценка, коммуникативные навыки и&nbsp;эмоциональное состояние.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Стоимость ══════════════════════════════════════════════ -->
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="sec-header rv" style="text-align:center;">
+      <span class="eyebrow">Стоимость</span>
+      <h2>Один формат — полное сопровождение</h2>
+      <p style="max-width:none;">Интенсив проходит только в&nbsp;индивидуальном формате, потому что каждый ребёнок требует своего темпа и&nbsp;подхода.</p>
+    </div>
+
+    <div class="price-card rv">
+      <div class="price-grid">
+        <div class="price-left">
+          <span class="eyebrow">Индивидуальный интенсив</span>
+          <h2>Полный курс</h2>
+          <div class="price-amount">75&thinsp;000&nbsp;&#8381;</div>
+          <p class="price-note">Стоимость полного курса (10&nbsp;дней + 3&nbsp;недели поддержки)</p>
+          <div class="price-installment">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--slate)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Доступна рассрочка
+          </div>
+          <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Записаться на&nbsp;интенсив
+          </a>
+          <p class="price-cta-note">Я&nbsp;отвечу в&nbsp;течение дня и&nbsp;отвечу на&nbsp;все вопросы</p>
+        </div>
+        <div class="price-right">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;">Что входит в&nbsp;стоимость</p>
+          <div class="price-includes">
+            <div class="price-incl-item">10&nbsp;дней ежедневных занятий в&nbsp;Zoom по&nbsp;40&nbsp;минут</div>
+            <div class="price-incl-item">6&nbsp;поддерживающих занятий (2&nbsp;раза в&nbsp;неделю, 3&nbsp;недели)</div>
+            <div class="price-incl-item">32&nbsp;видеоурока в&nbsp;записи</div>
+            <div class="price-incl-item">Конспекты занятий и&nbsp;рабочие материалы</div>
+            <div class="price-incl-item">Домашние задания с&nbsp;видеоинструкциями</div>
+            <div class="price-incl-item">Личный чат поддержки на&nbsp;всё время интенсива</div>
+            <div class="price-incl-item">Разбор после каждого занятия — объяснение ДЗ для&nbsp;родителя</div>
+            <div class="price-incl-item">Месяц подписки на&nbsp;«Непослушный язычок» в&nbsp;подарок</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Отзывы ════════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="reviews">
+  <div class="wrap">
+
+    <div class="ornament-row rv">
+      <span>Что говорят родители</span>
+    </div>
+
+    <div class="hrev-list">
+
+      <!-- Оксана -->
+      <div class="hrev-card rv">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-1">Большое спасибо Виктория Владимировна за вашу работу, за профессионализм и терпение. За умение найти правильный подход и заинтересовать ребёнка. И конечно же за наши поставленные звуки и&nbsp;Ррр!</p>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Оксана</span>
+            <span class="hrev-date">Постановка звуков</span>
+          </div>
+          <span class="hrev-tag">Довольна результатом</span>
+        </div>
+      </div>
+
+      <!-- Ирина 1 -->
+      <div class="hrev-card rv rv-d1">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-2">Сын занимается с Викторией Владимировной примерно год. Обращались с конкретной проблемой — в речи появились странные запинки. У меня не нормотипичный ребёнок, поэтому были сомнения, сможет ли он качественно заниматься онлайн. Но Виктория Владимировна нашла подход, занятия очень интересные и необычные. Сейчас речь в плане плавности ещё не идеальная, но он научился контролировать себя — этого мы и добивались. А ещё Виктория Владимировна очень тепло относится к нему.</p>
+        <button class="hrev-expand" onclick="toggleRev('rev-text-2', this)">Читать полностью</button>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Ирина</span>
+            <span class="hrev-date">24 сентября 2025 · Заикание</span>
+          </div>
+          <span class="hrev-tag">Занимаемся год</span>
+        </div>
+      </div>
+
+      <!-- Фарида -->
+      <div class="hrev-card rv rv-d1">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-3">Виктории я доверилась сразу, абсолютно на 100%. Она могла проконсультировать по любому вопросу, в нужный момент успокоить и дать развёрнутый ответ. Меня восхищает умение Виктории подстроиться в любой контекст и так замечательно наладить диалог с ребёнком, что каждое занятие будет рабочим. Мы смогли быть командой: Виктория + ребёнок + родители. Приятным бонусом стало то, что ребёнок стал лучше произносить звуки и интереснее строить предложения.</p>
+        <button class="hrev-expand" onclick="toggleRev('rev-text-3', this)">Читать полностью</button>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Фарида</span>
+            <span class="hrev-date">Речевые запинки</span>
+          </div>
+          <span class="hrev-tag">Рекомендует</span>
+        </div>
+      </div>
+
+      <!-- Ирина 2 -->
+      <div class="hrev-card rv rv-d2">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-4">С Викторией Владимировной занимаемся уже почти 2&nbsp;месяца, я очень довольна. У сына есть хороший прогресс в учёбе, занимается он с удовольствием. Будем и дальше с ней сотрудничать. Рекомендую!</p>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Ирина</span>
+            <span class="hrev-date">3 марта 2022 · Логопеды</span>
+          </div>
+          <span class="hrev-tag">Продолжают занятия</span>
+        </div>
+      </div>
+
+      <!-- Анонимный 1 (старый) -->
+      <div class="hrev-card rv rv-d2">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-5">Поначалу больше помогали отстукивания. С дыханием были трудности — постоянно использовать. Но в&nbsp;последнее время именно дыхание его спасает. Летом много дули пузыри, дули на&nbsp;пух. С&nbsp;августа выполняли каждый день по&nbsp;одному упражнению из&nbsp;дыхательной практики. В&nbsp;целом работа с&nbsp;дыханием очень помогла.</p>
+        <button class="hrev-expand" onclick="toggleRev('rev-text-5', this)">Читать полностью</button>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Родитель</span>
+            <span class="hrev-date">Работа с дыханием</span>
+          </div>
+          <span class="hrev-tag">Прошли интенсив</span>
+        </div>
+      </div>
+
+      <!-- Анонимный 2 (старый) -->
+      <div class="hrev-card rv rv-d2">
+        <div class="hrev-big-quote">&ldquo;</div>
+        <p class="hrev-text hrev-clamp" id="rev-text-6">Спасибо за&nbsp;помощь в&nbsp;борьбе с&nbsp;заиканием. Очень надеюсь, что мы поборем этот недуг и&nbsp;он к&nbsp;нам больше не&nbsp;вернётся. В&nbsp;течение года несколько раз возвращалось, но&nbsp;благодаря вашим упражнениям и&nbsp;подсказкам мы быстро справляемся. В&nbsp;последние пару месяцев рецидивов пока нет.</p>
+        <button class="hrev-expand" onclick="toggleRev('rev-text-6', this)">Читать полностью</button>
+        <div class="hrev-footer">
+          <div class="hrev-meta">
+            <span class="hrev-name">Родитель</span>
+            <span class="hrev-date">Заикание</span>
+          </div>
+          <span class="hrev-tag">Прошли интенсив</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-header rv" style="text-align:center;">
+      <span class="eyebrow">Вопросы и&nbsp;ответы</span>
+      <h2>Часто задаваемые вопросы</h2>
+    </div>
+    <div class="faq-wrap">
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          С какого возраста подходит интенсив?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Интенсив подходит для детей дошкольного и школьного возраста. Точный возрастной диапазон уточняется индивидуально на&nbsp;первичной консультации — напишите мне, и&nbsp;мы определим, подходит ли программа вашему ребёнку.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Что нужно для занятий? Какое оборудование?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Только компьютер или ноутбук с&nbsp;камерой и&nbsp;микрофоном, стабильный интернет и&nbsp;программа Zoom (бесплатная). Занятия проходят онлайн, поэтому вы&nbsp;занимаетесь из&nbsp;любой точки в&nbsp;комфортной домашней обстановке.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Нужно ли присутствие родителя на&nbsp;занятиях?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Да, и&nbsp;это принципиально важно. После каждого занятия я&nbsp;объясняю родителю домашнее задание и&nbsp;даю рекомендации. Ваша вовлечённость — ключевой фактор успеха: именно родитель закрепляет результат дома и&nbsp;становится «домашним логопедом», который может помочь ребёнку самостоятельно в&nbsp;будущем.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Что такое «кабинетная речь» и&nbsp;почему это проблема?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">«Кабинетная речь» — это когда ребёнок говорит хорошо только во&nbsp;время занятия с&nbsp;логопедом, а&nbsp;в&nbsp;обычной жизни снова заикается. Так происходит, потому что навык не&nbsp;закреплён в&nbsp;реальных условиях. В&nbsp;нашем интенсиве мы специально работаем над переносом плавной речи из&nbsp;занятия в&nbsp;повседневную жизнь.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Что делать, если после интенсива заикание вернулось?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Рецидив — это не откат на&nbsp;старт. Именно поэтому я&nbsp;обучаю родителей методике полностью: после интенсива вы&nbsp;знаете, как самостоятельно помочь ребёнку выйти из&nbsp;рецидива без&nbsp;паники и&nbsp;без&nbsp;возвращения к&nbsp;специалисту с&nbsp;нуля. При необходимости мы&nbsp;договариваемся о&nbsp;дополнительных занятиях.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Возможна ли рассрочка?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Да, рассрочка доступна. Условия обсуждаются индивидуально — напишите мне в&nbsp;мессенджер или оставьте заявку, и&nbsp;я&nbsp;расскажу о&nbsp;доступных вариантах оплаты.</div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Гарантируете ли вы результат?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-ans">Результат зависит от&nbsp;регулярности занятий, выполнения домашних заданий и&nbsp;вовлечённости семьи. При соблюдении этих условий большинство детей начинают говорить значительно плавнее уже в&nbsp;первые дни интенсива. Я&nbsp;сопровождаю вас на&nbsp;каждом этапе и&nbsp;подстраиваю программу под прогресс ребёнка.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- wave: bg → dark (перед "Зёрна"-секцией) -->
+<div class="sec-wave" style="background:#F4EEE2">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,52 C400,0 1040,0 1440,52 L1440,52 L0,52 Z" fill="#231F1A"/>
+  </svg>
+</div>
+
+<!-- ══ "Зёрна"-секция: специалист с гордостью ════════════ -->
+<section class="pride-sec">
+  <div class="wrap">
+    <div class="pride-inner">
+      <div class="pride-left rv">
+        <span class="eyebrow">Специалист, которому доверяют</span>
+        <h2>Виктория Меренкова</h2>
+        <p>15&nbsp;лет я&nbsp;работаю с&nbsp;детьми, которые заикаются. За&nbsp;это время я&nbsp;поняла: настоящий результат рождается только тогда, когда ребёнок говорит свободно дома, в&nbsp;школе, с&nbsp;друзьями — а&nbsp;не только в&nbsp;кабинете логопеда.</p>
+        <div class="pride-features">
+          <div class="pride-feat">
+            <div class="pride-feat-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre-lt)" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="pride-feat-txt">
+              <strong>Высшее логопедическое образование</strong>
+              <span>Специализация — заикание и&nbsp;нарушения плавности речи</span>
+            </div>
+          </div>
+          <div class="pride-feat">
+            <div class="pride-feat-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre-lt)" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+            </div>
+            <div class="pride-feat-txt">
+              <strong>100+ семей прошли интенсив</strong>
+              <span>Каждая история — индивидуальный подход и&nbsp;устойчивый результат</span>
+            </div>
+          </div>
+          <div class="pride-feat">
+            <div class="pride-feat-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ochre-lt)" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="pride-feat-txt">
+              <strong>Авторская методика</strong>
+              <span>Работа с&nbsp;дыханием, телом и&nbsp;ритмом — не только с&nbsp;речью</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" class="btn-outline-white">Записаться на&nbsp;интенсив</a>
+      </div>
+      <div class="pride-right rv rv-d1">
+        <div class="pride-photo">
+          <img src="Amf2bK3sXx_Bry2ddHJfgFJJ6v9TSAII48xIeYxkYh6mh4rMq0c4cCrcNQliFuM_Jhh9kiO_p21XEMyvsWsxCj9q.jpg" alt="Виктория Меренкова — логопед">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- wave: dark → bg-alt (после "Зёрна"-секции) -->
+<div class="sec-wave" style="background:#231F1A">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C400,52 1040,52 1440,0 L1440,52 L0,52 Z" fill="#EAE0CE"/>
+  </svg>
+</div>
+
+<!-- ══ Контакты ══════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="contact">
+  <div class="wrap">
+    <div style="max-width:560px;margin:0 auto;text-align:center;" class="rv">
+      <span class="eyebrow">Запись</span>
+      <h2 style="margin:12px 0 16px;">Напишите нам во&nbsp;ВКонтакте</h2>
+      <p style="font-size:1rem;line-height:1.7;color:var(--text-mid);margin-bottom:36px;">Расскажите о&nbsp;ситуации — отвечу в&nbsp;течение дня, подберём удобное время для&nbsp;начала занятий.</p>
+      <a href="https://vk.ru/club218696772" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="font-size:1rem;padding:16px 40px;display:inline-flex;align-items:center;gap:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.019-1.304.576-1.496c.588-.19 1.341 1.26 2.14 1.818.605.422 1.064.33 1.064.33l2.137-.03s1.117-.07.587-.96c-.043-.073-.308-.661-1.588-1.87-1.34-1.264-1.16-1.059.453-3.246.983-1.332 1.376-2.145 1.252-2.493-.118-.332-.843-.244-.843-.244l-2.406.015s-.178-.025-.31.056c-.13.079-.213.265-.213.265s-.38 1.026-.888 1.898c-1.07 1.86-1.498 1.96-1.673 1.845-.407-.267-.305-1.075-.305-1.648 0-1.793.267-2.54-.521-2.733-.261-.064-.453-.106-1.12-.113-.856-.009-1.58.003-1.99.207-.273.135-.483.435-.355.452.158.022.516.099.706.363.246.341.237 1.107.237 1.107s.142 2.11-.33 2.372c-.324.18-.768-.188-1.723-1.87-.489-.858-.859-1.808-.859-1.808s-.07-.181-.198-.278c-.154-.117-.37-.154-.37-.154l-2.286.015s-.343.01-.469.162C4.536 7.986 4.64 8.3 4.64 8.3s1.79 4.258 3.817 6.403c1.858 1.967 3.968 1.838 3.968 1.838l1.36-.3z" fill="#fff"/></svg>
+        Написать во&nbsp;ВКонтакте
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- wave: bg-alt → dark -->
+<div class="sec-wave" style="background:#EAE0CE">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,52 C400,0 1040,0 1440,52 L1440,52 L0,52 Z" fill="#231F1A"/>
+  </svg>
+</div>
+
+<!-- ══ CTA-полоса ════════════════════════════════════════════ -->
+<div class="cta-strip rv">
+  <h2>Ваш ребёнок заслуживает говорить свободно</h2>
+  <p>Начнём в&nbsp;удобное для&nbsp;вас время. Первый шаг — просто написать.</p>
+  <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" class="btn btn-white">Записаться на&nbsp;интенсив</a>
+</div>
+
+<!-- wave: dark → bg-alt (перед футером) -->
+<div class="sec-wave" style="background:#231F1A">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C400,52 1040,52 1440,0 L1440,52 L0,52 Z" fill="#EAE0CE"/>
+  </svg>
+</div>
+
+<!-- ══ Футер ══════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h3>Ждём вас на&nbsp;консультацию!</h3>
+        <div class="footer-contacts">
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Онлайн-занятия через Zoom
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Ежедневно, 40 минут каждое занятие
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <a href="https://maps.apple.com/place?address=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,%20%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F,%20109012&coordinate=55.753729,37.620119&name=(null)&map=explore" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Москва — онлайн по&nbsp;всей России</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <a href="https://vk.ru/club218696772" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">vk.ru/club218696772</a>
+          </div>
+        </div>
+        <div class="footer-social" style="margin-top:20px;">
+          <a href="https://vk.ru/club218696772" class="footer-soc-btn" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7h4l2 4 2-4h4v10h-4v-5l-2 3-2-3v5H2V7z" fill="var(--ochre)"/><path d="M14 7h4c0 0 1 6-2 10h-4c3-4 2-10 2-10z" fill="var(--ochre)"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <h3>Будьте в&nbsp;курсе и&nbsp;задайте вопрос</h3>
+        <p>Напишите во&nbsp;ВКонтакте — отвечаю в&nbsp;течение дня, подберём удобное время.</p>
+        <a href="https://vk.ru/club218696772" class="footer-vk-btn" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7h4l2 4 2-4h4v10h-4v-5l-2 3-2-3v5H2V7z" fill="#fff"/><path d="M14 7h4c0 0 1 6-2 10h-4c3-4 2-10 2-10z" fill="#fff"/></svg>
+          Написать во&nbsp;ВКонтакте
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-logo">Говорим <em>плавно</em></div>
+      <p class="footer-copy">&copy; 2025 &middot; Виктория Меренкова &middot; Логопед</p>
+      <ul class="footer-links">
+        <li><a href="#program">Программа</a></li>
+        <li><a href="#price">Стоимость</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 50));
+
+const burger  = document.getElementById('burger');
+const mobMenu = document.getElementById('mobMenu');
+const mobClose= document.getElementById('mobClose');
+burger.addEventListener('click',  () => mobMenu.classList.add('open'));
+mobClose.addEventListener('click',() => mobMenu.classList.remove('open'));
+function closeMob() { mobMenu.classList.remove('open'); }
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hero .rv, .usp-strip .rv').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 100);
+  });
+});
+
+function toggleDiploma(btn) {
+  const wrap = document.getElementById('diplomaVideo');
+  const vid  = document.getElementById('diplomaVid');
+  const open = wrap.style.display === 'none';
+  wrap.style.display = open ? 'block' : 'none';
+  if (open) vid.play();
+  else { vid.pause(); vid.currentTime = 0; }
+  btn.querySelector('svg polygon').setAttribute('points', open ? '19 3 5 12 19 21 19 3' : '5 3 19 12 5 21 5 3');
+  btn.style.borderColor = open ? 'var(--ochre)' : '';
+  btn.style.color = open ? 'var(--ochre)' : '';
+}
+
+function toggleRev(id, btn) {
+  const el = document.getElementById(id);
+  const expanded = el.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Свернуть' : 'Читать полностью';
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+const form    = document.getElementById('contactForm');
+const success = document.getElementById('formSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (form.querySelector('[name=website]').value) return;
+  const btn = form.querySelector('button[type=submit]');
+  btn.textContent = 'Отправка...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST', body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      btn.textContent = 'Ошибка — попробуйте ещё раз';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Ошибка — попробуйте ещё раз';
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
